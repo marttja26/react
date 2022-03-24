@@ -2,13 +2,13 @@ import "./App.css";
 import Header from "./components/Header";
 import ItemListContainer from "./components/ItemListContainer";
 
-function App() {
+const App = () => {
 	return (
 		<>
 			<Header />
-			<ItemListContainer greeting="Bienvenido!" />
+			<ItemListContainer greeting="hola bienvenido" />
 		</>
 	);
-}
+};
 
 export default App;
