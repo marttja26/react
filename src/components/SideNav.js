@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Nav from "./Nav";
+import Links from "./Links";
 import { HiOutlineX, HiOutlineViewList } from "react-icons/hi";
 
 const SideNav = () => {
@@ -12,7 +12,7 @@ const SideNav = () => {
 			<HiOutlineViewList
 				onClick={toggler}
 				size="2rem"
-				className="hover:cursor-pointer md:hidden"
+				className="hover:cursor-pointer lg:hidden"
 			/>
 			<div
 				className={
@@ -28,7 +28,7 @@ const SideNav = () => {
 						className="hover:cursor-pointer m-5"
 					/>
 				) : null}
-				<Nav />
+				<Links />
 			</div>
 		</>
 	);
