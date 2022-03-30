@@ -1,6 +1,20 @@
+import { useEffect, useState } from "react";
 import ItemCount from "./ItemCount";
+import ItemList from "./ItemList";
 
 const ItemListContainer = ({ greeting }) => {
+	const [products, setProducts] = useState([]);
+
+	useEffect(() => {
+		setTimeout(() => {
+			fetch("https://fakestoreapi.com/products")
+				.then((response) => response.json())
+				.then((json) => {
+					setProducts([...json]);
+				});
+		}, 2000);
+	}, []);
+
 	const onAdd = (valor) => {
 		console.log(
 			`Has agregado ${valor} ${valor == 1 ? "producto" : "productos"}`
@@ -8,12 +22,8 @@ const ItemListContainer = ({ greeting }) => {
 	};
 	return (
 		<main className="h-screen">
-			<div className="py-5">
-				<p className="text-center text-xl">{greeting}</p>
-			</div>
-			<ItemCount stock={5} initial={2} onAdd={onAdd} />
-			<ItemCount stock={5} onAdd={onAdd} /> {/* mejor manejado por la 2da solucion */}
-			<ItemCount stock={0} initial={3} onAdd={onAdd}/> {/* mejor manejado por la 2da solucion */}
+			<ItemList items={products} />
+			<ItemCount stock={10} initial={11} onAdd={onAdd} />
 		</main>
 	);
 };
