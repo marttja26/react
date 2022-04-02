@@ -1,8 +1,7 @@
 import { useState } from "react";
 import { HiOutlinePlusSm, HiOutlineMinusSm } from "react-icons/hi";
-// SOLUCION 1 APEGADA A LA CONSIGNA
 const ItemCount = ({ stock, initial, onAdd }) => {
-	const [count, setCount] = useState(stock > initial ? initial : stock)
+	const [count, setCount] = useState(stock > initial ? initial : stock);
 
 	const incrementCount = () => {
 		if (stock > count) {
@@ -30,9 +29,7 @@ const ItemCount = ({ stock, initial, onAdd }) => {
 					<HiOutlineMinusSm size="1.5rem" />
 				</button>
 				<div className="w-10 bg-white">
-					<p className="text-center text-xl">
-						{count}
-					</p>
+					<p className="text-center text-xl">{count}</p>
 				</div>
 				<button className="bg-gray-200" onClick={incrementCount}>
 					<HiOutlinePlusSm size="1.5rem" />
@@ -46,6 +43,6 @@ const ItemCount = ({ stock, initial, onAdd }) => {
 			</button>
 		</div>
 	);
-}; 
+};
 
 export default ItemCount;

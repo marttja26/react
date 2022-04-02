@@ -20,11 +20,6 @@ const ItemListContainer = ({ greeting }) => {
 			`Has agregado ${valor} ${valor == 1 ? "producto" : "productos"}`
 		);
 	};
-	return (
-		<main className="h-screen">
-			<ItemList items={products} />
-			<ItemCount stock={10} initial={11} onAdd={onAdd} />
-		</main>
-	);
+	return <ItemList items={products} />;
 };
 export default ItemListContainer;
