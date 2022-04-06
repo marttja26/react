@@ -17,7 +17,7 @@ const SideNav = () => {
 			<div
 				className={
 					toggle
-						? "absolute top-0 left-0 h-screen w-screen bg-white z-10"
+						? "fixed top-0 left-0 h-screen w-screen bg-white z-10"
 						: "hidden"
 				}
 			>
