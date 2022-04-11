@@ -21,8 +21,8 @@ const ItemCount = ({ stock, initial, onAdd }) => {
 	};
 
 	return (
-		<div className="flex flex-col gap-5 w-fit m-auto p-5 border rounded-md">
-			<p className="text-center">Producto</p>
+		<div className="flex flex-col gap-5 w-full">
+			<p className="text-center"></p>
 			<p className="text-center">STOCK: {stock}</p>
 			<div className="flex max-w-fit border m-auto">
 				<button className="bg-gray-200" onClick={decrementCount}>

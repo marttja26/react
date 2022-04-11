@@ -1,4 +1,4 @@
-# Proyecto Ecommercer React-Coderhouse
+# Proyecto Ecommerce React-Coderhouse
 
 ## Dependencias utilizadas
 
@@ -11,6 +11,25 @@
 -React-router
 
 -React-loader-spinner
+
+## -------------------------
+
+Simulacion de una e-commerce digital de venta de productos varios, obteniendo la informacion de los datos mediante el consumo de una API REST utilizando el metodo Fetch y utilizandolos en el sitio de manera dinamica.
+
+React Hooks:
+
+useState: Se implementa para poder manipular el estado en un componente funcional, esto nos permite generar un re-render del componente mediante la modificacion de su estado.
+Al hook se le debe pasar como argumento el valor inicial del estado, y este va a retornar 2 valores, el estado actual y el metodo mediante el cual lo actualizamos.
+
+useEffect: Permite hacer uso del ciclo de vida en un componente funcional, es una funcion que recibe dos argumentos, el primero es el effect, es una funcion que se ejecuta cada vez que nuestro componente se renderiza o el valor de nuestro segundo parametro (el array de dependencia) cambie (si existe) y debe retornar una funcion (cleanup) o undefined.
+ 
+React-Router-dom: Es un paquete que nos permite utilizar enrutado dinamico en una aplicacion web. Permite mostrar paginas y a los usuarios navegar entre las mismas. Es utilizado para crear SPA applications que tienen diferentes paginas o componentes y que el contenido cambie dinamicamente basado en el cambio de la URL y no sea necesario refrescar la misma. 
+
+La ventaja de no tener que recargar la pagina en comparacion a una pagina de navegacion tradicional es que es mucho mas rapida, esto significa que la experiencia del usuario es mejor y el rendimiento de la aplicacion es superior.
+
+Tailwind: es un utility-first CSS framework para crear aplicaciones web. Toma un acercamiento funcional al diseño web proveyendo miles de clases pequeñas para usar directamente en el html. 
+
+
 
 
 <!-- # Getting Started with Create React App

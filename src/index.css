@@ -6,6 +6,9 @@
 	html {
 		font-family: "Roboto", sans-serif;
 	}
+	body {
+		background-color: #a78bfa;
+	}
 	#root {
 		height: 100vh;
 		display: flex;

@@ -4,7 +4,7 @@ import CartWidget from "../CartWidget";
 import { NavLink } from "react-router-dom";
 const NavBar = () => {
 	return (
-		<header className="flex flex-initial p-5 sticky justify-between items-center bg-violet-400 lg:px-14">
+		<header className="flex flex-initial p-5 sticky justify-between items-center lg:px-14">
 			<>
 				<SideNav />
 				<Links className="hidden" />

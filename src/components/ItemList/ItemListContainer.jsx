@@ -21,11 +21,6 @@ const ItemListContainer = () => {
 			});
 	}, [categoryName]);
 
-	const onAdd = (valor) => {
-		console.log(
-			`Has agregado ${valor} ${valor === 1 ? "producto" : "productos"}`
-		);
-	};
 	return products.length !== 0 ? (
 		<ItemList items={products} />
 	) : (
