@@ -12,7 +12,7 @@ const Dropdown = ({ categories }) => {
 			<button onClick={HandlerClick}>
 				CATEGORIAS <HiChevronDown className="inline-block" />
 			</button>
-			{menu === false ? null : (
+			{menu && (
 				<ul className="absolute w-fit top-12 md:-left-2 md:border-2 md:bg-white">
 					{categories.map((category, index) => {
 						return (

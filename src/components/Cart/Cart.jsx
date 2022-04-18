@@ -3,20 +3,30 @@ import { context } from "../context/Context";
 import { Link } from "react-router-dom";
 import CartProduct from "./CartProduct";
 const Cart = () => {
-	const { carrito, removeItem, clearAll } = useContext(context);
+	const { carrito, totalValue, removeItem, clearAll } = useContext(context);
 	console.log(carrito);
 	return (
 		<div className="flex flex-auto flex-col p-5 bg-white">
 			{carrito.map((item) => (
 				<CartProduct item={item} key={item.id} removeItem={removeItem} />
 			))}
+
 			{carrito.length > 0 ? (
-				<button
-					className="flex min-w-fit mx-auto my-5 border p-2 bg-violet-400"
-					onClick={clearAll}
-				>
-					VACIAR EL CARRITO
-				</button>
+				<div className="flex flex-wrap justify-center w-4/5 mx-auto md:justify-between">
+					
+					<button
+						className="flex self-center min-w-fit h-fit my-5 border p-2"
+						onClick={clearAll}
+					>
+						VACIAR EL CARRITO
+					</button>
+					<div className="flex flex-col my-5 p-5 border-2">
+						<p className="flex m-auto text-xl">TOTAL: ${totalValue}</p>
+						<button className="flex min-w-fit mx-auto my-5 border p-2 bg-violet-400">
+							FINALIZAR COMPRA
+						</button>
+					</div>
+				</div>
 			) : (
 				<div className="flex flex-col items-center m-auto">
 					<p className="flex text-2xl">EL CARRITO ESTA VACIO.</p>

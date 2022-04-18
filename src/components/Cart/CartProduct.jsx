@@ -10,8 +10,8 @@ const CartProduct = ({ item, removeItem }) => {
 					alt=""
 				></img>
 				<p className="lg:w-96">{item.title}</p>
-				<p>Quantity: {item.quantity}</p>
-				<p>Price: ${item.price}</p>
+				<p>CANTIDAD: {item.quantity}</p>
+				<p>PRECIO: ${item.price}</p>
 			</div>
 			<button onClick={() => removeItem(item.id)}>
 				<HiTrash size="1.5em" />

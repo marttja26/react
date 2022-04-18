@@ -10,15 +10,19 @@ const CustomProvider = ({ children }) => {
         return accumulator + element.quantity;
     }, 0);
 
+	const totalValue = carrito.reduce((accumulator, element) => {
+        return accumulator + element.quantity * element.price;
+    }, 0);
+
 	const isInCart = (id) => {
 		return carrito.some((element) => element.id === id);
 	};
 	const addItem = (item, quantity) => {
 		console.log(carrito);
 		if (isInCart(item.id)) {
-			let products = [...carrito];
+			const products = [...carrito];
 			const index = carrito.findIndex((element) => element.id === item.id);
-			products[index].quantity = products[index].quantity + quantity;
+			products[index].quantity += quantity;
 			setCarrito(products);
 		} else {
 			setCarrito([...carrito, {...item, quantity }]);
@@ -32,7 +36,7 @@ const CustomProvider = ({ children }) => {
 	};
 
 	return (
-		<Provider value={{carrito, sumOfProducts, addItem, removeItem, clearAll }}>
+		<Provider value={{carrito, sumOfProducts, totalValue, addItem, removeItem, clearAll }}>
 			{children}
 		</Provider>
 	);

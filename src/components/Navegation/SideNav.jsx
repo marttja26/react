@@ -21,13 +21,13 @@ const SideNav = () => {
 						: "hidden"
 				}
 			>
-				{toggle ? (
+				{toggle && (
 					<HiOutlineX
 						onClick={toggler}
 						size="2rem"
 						className="hover:cursor-pointer m-5"
 					/>
-				) : null}
+				)}
 				<Links />
 			</div>
 		</>
