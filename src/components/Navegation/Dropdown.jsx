@@ -21,9 +21,9 @@ const Dropdown = ({ categories }) => {
 									className={(navData) =>
 										navData.isActive ? "text-m" : "text-sm text-gray-400"
 									}
-									to={`category/${category.replace(/\s+/g, "_")}`}
+									to={`category/${category}`}
 								>
-									{category.toUpperCase()}
+									{category.toUpperCase().replace("_", " ")}
 								</NavLink>
 							</li>
 						);

@@ -1,15 +1,10 @@
 import { useContext } from "react";
 import { context } from "../context/Context";
 import ItemCount from "../ItemCount";
-import { HiStar } from "react-icons/hi";
 
 const ItemDetail = ({ product }) => {
 	const { addItem } = useContext(context);
-	const { rate, count } = product.rating;
 	const onAdd = (valor) => {
-		//console.log(
-		//	`Has agregado ${valor} ${valor === 1 ? "producto" : "productos"}`
-		//);
 		addItem(product, valor);
 	};
 	return (
@@ -24,22 +19,9 @@ const ItemDetail = ({ product }) => {
 				</div>
 				<div className="flex flex-col self-center gap-5 px-5 py-10">
 					<p className="text-xl">{product.title}</p>
-					<div className="flex justify-between">
-						<span>
-							<HiStar className="inline" />
-							{rate}
-						</span>
-						<p>{count} opiniones</p>
-					</div>
 					<p className="text-xl">$ {product.price}</p>
 					<p>{product.description}</p>
-					<ItemCount
-						stock={
-							5 /* Seria product.stock pero no tengo acceso a modificar la api, cuando creemos el json en firebase voy a agregarle esa propiedad */
-						}
-						initial={1}
-						onAdd={onAdd}
-					/>
+					<ItemCount stock={product.stock} initial={1} onAdd={onAdd} />
 				</div>
 			</div>
 		</div>

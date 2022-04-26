@@ -1,13 +1,22 @@
 import { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import Dropdown from "./Dropdown";
+import { db } from "../../firebase/firebase.js"
+import { collection, getDocs } from 'firebase/firestore';
 
 const Links = ({ className }) => {
 	const [categories, setCategories] = useState([]);
 	useEffect(() => {
-		fetch("https://fakestoreapi.com/products/categories")
-			.then((res) => res.json())
-			.then((json) => setCategories([...json]));
+		const productsCollection = collection(db, 'productos')
+		getDocs(productsCollection)
+		.then((res) => {
+			const docs = res.docs;
+			const list = docs.map((product) => {
+				const producto = product.data()
+				return producto.category;
+			})
+			setCategories([...new Set(list)]);
+		})
 	}, []);
 	return (
 		<nav className={`lg:flex lg:flex-1 ${className}`}>

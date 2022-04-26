@@ -2,16 +2,23 @@ import { useEffect, useState } from "react";
 import ItemDetail from "./ItemDetail";
 import { useParams } from "react-router-dom";
 import { TailSpin } from "react-loader-spinner";
+import { db } from "../../firebase/firebase.js";
+import { collection, getDoc, doc } from "firebase/firestore";
 
 const ItemDetailContainer = () => {
 	const [product, setProduct] = useState({});
 	const { id } = useParams();
 	useEffect(() => {
-		const url = `https://fakestoreapi.com/products/${id}`;
-		fetch(url)
-			.then((response) => response.json())
-			.then((json) => {
-				setProduct(json);
+		const productsCollection = collection(db, "productos");
+		const refDoc = doc(productsCollection, id);
+		getDoc(refDoc)
+			.then((result) => {
+				const id = result.id;
+				const item = { id, ...result.data() };
+				setProduct(item);
+			})
+			.catch((error) => {
+				console.log(error);
 			});
 	}, [id]);
 
