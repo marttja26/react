@@ -5,6 +5,7 @@ import NavBar from "./components/Navegation/NavBar";
 import ItemListContainer from "./components/ItemList/ItemListContainer";
 import ItemDetailContainer from "./components/ItemDetail/ItemDetailContainer";
 import Cart from "./components/Cart/Cart";
+import Form from "./components/Form/Form";
 import ErrorPage from "./components/ErrorPage";
 const App = () => {
 	return (
@@ -19,6 +20,7 @@ const App = () => {
 					/>
 					<Route path="/item/:id" element={<ItemDetailContainer />} />
 					<Route path="/cart" element={<Cart />} />
+					<Route path="/form" element={<Form />} />
 					<Route path="*" element={<ErrorPage />} />
 				</Routes>
 			</CustomProvider>

@@ -18,7 +18,6 @@ const CustomProvider = ({ children }) => {
 		return carrito.some((element) => element.id === id);
 	};
 	const addItem = (item, quantity) => {
-		console.log(carrito);
 		if (isInCart(item.id)) {
 			const products = [...carrito];
 			const index = carrito.findIndex((element) => element.id === item.id);
