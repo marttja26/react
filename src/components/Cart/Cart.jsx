@@ -11,17 +11,13 @@ const Cart = () => {
 			))}
 
 			{carrito.length > 0 ? (
-				<div className="flex flex-wrap justify-center w-4/5 mx-auto md:justify-between">
-					
-					<button
-						className="flex self-center min-w-fit h-fit my-5 border p-2"
-						onClick={clearAll}
-					>
+				<div className="flex flex-col justify-center w-4/5 mx-auto md:justify-between md:flex-row">
+					<button className="btn-del" onClick={clearAll}>
 						VACIAR EL CARRITO
 					</button>
 					<div className="flex flex-col my-5 p-5 border-2">
 						<p className="flex m-auto text-xl">TOTAL: ${totalValue}</p>
-						<Link to={"/form"} className="flex min-w-fit mx-auto my-5 border p-2 bg-violet-400">
+						<Link to={"/form"} className="btn">
 							FINALIZAR COMPRA
 						</Link>
 					</div>

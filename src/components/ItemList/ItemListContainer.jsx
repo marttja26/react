@@ -7,16 +7,23 @@ import { collection, getDocs, query, where } from "firebase/firestore";
 
 const ItemListContainer = () => {
 	const [products, setProducts] = useState([]);
-	const { categoryName } = useParams();
+	const { categoryName, brandName } = useParams();
 	useEffect(() => {
 		const productsCollection = collection(db, "productos");
 
-		const q = query(
+		const byCategory = query(
 			productsCollection,
 			where("category", "==", `${categoryName}`)
 		);
 
-		getDocs(categoryName ? q : productsCollection).then((res) => {
+		const byBrand = query(
+			productsCollection,
+			where("brand", "==", `${brandName}`)
+		);
+
+		getDocs(
+			categoryName ? byCategory : brandName ? byBrand : productsCollection
+		).then((res) => {
 			const docs = res.docs;
 			const list = docs.map((product) => {
 				const id = product.id;
@@ -28,7 +35,7 @@ const ItemListContainer = () => {
 			});
 			setProducts(list);
 		});
-	}, [categoryName]);
+	}, [categoryName, brandName]);
 
 	return products.length !== 0 ? (
 		<ItemList items={products} />

@@ -26,9 +26,9 @@ const ItemCount = ({ stock, initial, onAdd }) => {
 		<div className="flex flex-col gap-5 w-full">
 			{buyPhase === false ? (
 				<>
-					<p className="text-center"></p>
-					<p className="text-center">STOCK: {stock}</p>
-					<div className="flex max-w-fit border m-auto">
+					<p>STOCK: {stock}</p>
+					<p>Cantidad</p>
+					<div className="flex max-w-fit border my-auto">
 						<button className="bg-gray-200" onClick={decrementCount}>
 							<HiOutlineMinusSm size="1.5rem" />
 						</button>
@@ -39,15 +39,12 @@ const ItemCount = ({ stock, initial, onAdd }) => {
 							<HiOutlinePlusSm size="1.5rem" />
 						</button>
 					</div>
-					<button
-						className="flex min-w-fit m-auto border p-2 bg-violet-400"
-						onClick={AddToCart}
-					>
-						AGREGAR AL CARRITO
+					<button className="btn" onClick={AddToCart}>
+						{stock > 0 ? "AGREGAR AL CARRITO" : "NO HAY STOCK"}
 					</button>
 				</>
 			) : (
-				<button className="flex mx-auto border p-2 bg-violet-400">
+				<button className="btn">
 					<Link to={"/cart"}>FINALIZAR COMPRA</Link>
 				</button>
 			)}

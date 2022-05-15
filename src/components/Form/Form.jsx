@@ -55,36 +55,43 @@ const Form = () => {
 			{state === false ? (
 				<form
 					onSubmit={handleSumbit}
-					className="flex flex-col gap-3 w-3/4 border-2 p-5"
+					className="flex flex-col gap-3 w-3/4 border-2 p-5 lg:border-none"
 				>
-					<label htmlFor="name">Nombre:</label>
+					<label htmlFor="name" className="field-label">
+						Nombre:
+					</label>
 					<input
 						type="text"
 						id="name"
 						name="name"
 						placeholder="Escribe tu nombre aqui"
 						required
+						className="field"
 					></input>
-					<label htmlFor="telefono">Telefono:</label>
+					<label htmlFor="telefono" className="field-label">
+						Telefono:
+					</label>
 					<input
-						type="number"
+						type="telefono"
 						id="telefono"
 						name="telefono"
-						placeholder="Escribe tu telefono aqui"
+						placeholder="XXXX-XXXX"
+						pattern="[0-9]{4}-[0-9]{4}"
 						required
+						className="field"
 					></input>
-					<label htmlFor="email">Email:</label>
+					<label htmlFor="email" className="field-label">
+						Email:
+					</label>
 					<input
 						type="email"
 						id="email"
 						name="email"
 						placeholder="Escribe tu email aqui"
 						required
+						className="field"
 					></input>
-					<button
-						type="sumbit"
-						className="flex min-w-fit mx-auto my-5 border p-2 bg-violet-400"
-					>
+					<button type="sumbit" className="btn">
 						COMPRAR
 					</button>
 				</form>

@@ -2,7 +2,7 @@ import { useState } from "react";
 import { HiChevronDown } from "react-icons/hi";
 import { NavLink } from "react-router-dom";
 
-const Dropdown = ({ categories }) => {
+const Dropdown = ({ list, type }) => {
 	const [menu, setMenu] = useState(false);
 	const HandlerClick = () => {
 		setMenu(!menu);
@@ -10,20 +10,20 @@ const Dropdown = ({ categories }) => {
 	return (
 		<div className="relative">
 			<button onClick={HandlerClick}>
-				CATEGORIAS <HiChevronDown className="inline-block" />
+				{type.toUpperCase()} <HiChevronDown className="inline-block" />
 			</button>
 			{menu && (
-				<ul className="absolute w-fit top-12 md:-left-2 md:border-2 md:bg-white">
-					{categories.map((category, index) => {
+				<ul className="absolute w-fit top-12 z-10 bg-white md:-left-2 md:border-2">
+					{list.map((item, index) => {
 						return (
 							<li className="w-72 py-5 border-b md:pl-2 " key={index}>
 								<NavLink
 									className={(navData) =>
 										navData.isActive ? "text-m" : "text-sm text-gray-400"
 									}
-									to={`category/${category}`}
+									to={`${type}/${item}`}
 								>
-									{category.toUpperCase().replace("_", " ")}
+									{item.toUpperCase().replace(/_/g, " ")}
 								</NavLink>
 							</li>
 						);

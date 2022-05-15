@@ -1,4 +1,20 @@
 @tailwind base;
+
+.field {
+	@apply border py-2 px-3;
+}
+.field-label {
+	@apply uppercase font-bold text-lg mb-2;
+}
+
+.btn {
+	@apply flex p-4 min-w-fit mx-auto my-5 uppercase text-lg rounded border bg-violet-400 hover:scale-125 duration-200;
+}
+
+.btn-del {
+	@apply flex p-4 min-w-fit h-fit my-5 self-center rounded border bg-red-200 hover:bg-red-600 hover:scale-125 duration-200;
+}
+@tailwind utilities;
 @tailwind components;
 @tailwind utilities;
 
